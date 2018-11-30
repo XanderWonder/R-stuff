@@ -32,11 +32,8 @@ ION_Normalised <- as.data.frame(lapply(ION_NoClass, FeatureScaling))
 ION_Training <- ION_Normalised[1:280,]
 ION_Test <- ION_Normalised[281:351,]
 
-svm.model <- svm(Type ~ ., data = ION_Training, cost = 100, gamma = 1)
-svm.pred <- predict(svm.model,ION_Test[281:351,])
-
 #IONK_Value <- floor(sqrt(length(ION_Training[,1])))
-#IONK_Value <- 55
+IONK_Value <- 55
 
 ION_Predictions <- svm(ION_Training,ION_Test,iondata[1:280,35], svm=IONsvm)
 
